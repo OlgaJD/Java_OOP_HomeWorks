@@ -6,7 +6,7 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
-        ArrayList<BaseHeroes> newTeam = getTeam(5);
+        ArrayList<BaseHeroes> newTeam = getTeam(10);
         newTeam.forEach(n -> System.out.println(n.getInfo()));
     }
 
