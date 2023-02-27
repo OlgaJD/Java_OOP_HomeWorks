@@ -1,22 +1,26 @@
 package units;
-
 import java.util.Random;
 
 public abstract class BaseHeroes implements GameInterface{
-    protected String heroType;
-    protected String name;
-    protected int hp;
-    protected int damage;
+    protected int attack;
     protected int def;
+    protected int minDamage;
+    protected int maxDamage;
+    protected int hp;
     protected int speed;
+    protected String name;
+    protected String heroType;
 
-    public BaseHeroes (String heroType, String name, int hp, int damage, int def, int speed) {
-        this.heroType = heroType;
-        this.name = name;
-        this.hp = hp;
-        this.damage = damage;
+
+    public BaseHeroes (String heroType, String name, int attack, int def, int minDamage, int maxDamage, int hp, int speed) {
+        this.attack = attack;
         this.def = def;
+        this.minDamage = minDamage;
+        this.maxDamage = maxDamage;
+        this.hp = hp;
         this.speed = speed;
+        this.name = name;
+        this.heroType = heroType;
     }
 
     public String getInfo() {
@@ -31,24 +35,18 @@ public abstract class BaseHeroes implements GameInterface{
     }
 
     public String getFullInfo() {
-        return String.format("Класс: %s, имя: %s, здоровье: %d, урон: %d, защита: %d, скорость: %d", this.heroType, this.name, this.hp, this.damage, this.def, this.speed);
+        return String.format("Класс: %s, имя: %s, здоровье: %d, минимальный урон: %d, максимальный урон: %d, защита: %d, скорость: %d", this.heroType, this.name, this.hp, this.minDamage, this.maxDamage, this.def, this.speed);
     }
 
-
-    public void attack() {
-    }
-    public void getDamage() {
+    public String getSpeedSortedInfo() { // метод для проверки сортировки
+        return String.format("%s %s, скорость: %d, здоровье: %d", this.heroType, this.name, this.speed, this.hp);
     }
 
+    public int getSpeed() {
+        return speed;
+    }
 
-    public String getHeroType() {
-        return heroType;
-    }
-    public String getName() {
-        return name;
-    }
     public int getHp() {
         return hp;
     }
-
 }

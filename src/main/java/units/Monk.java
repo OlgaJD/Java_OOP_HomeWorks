@@ -2,10 +2,10 @@ package units;
 
 public class Monk extends Magicans {
     public Monk(String name) {
-        super("Монах", name, 45, 15, 3, 5, 10, 10);
+        super("Монах", name, 12, 7, -4, -4, 30, 5, 1);
     }
     public Monk() {
-        super("Монах", giveName(), 45, 15, 3, 5, 10, 10);
+        super("Монах", giveName(), 12, 7, -4, -4, 30, 5, 1);
     }
 
     @Override
@@ -13,10 +13,4 @@ public class Monk extends Magicans {
         return "Я монах " + name;
     }
 
-    @Override
-    public void heal () {
-    }
-
-    public void enhance() {
-    }
 }

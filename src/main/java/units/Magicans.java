@@ -2,14 +2,10 @@ package units;
 
 public abstract class Magicans extends BaseHeroes {
     protected int mp;
-    protected int maxMp;
-    public Magicans(String heroType, String name, int hp, int damage, int def, int speed, int mp, int maxMp) {
-        super(heroType, name, hp, damage, def, speed);
-        this.mp = mp;
-        this.maxMp = maxMp;
-    }
 
-    public void heal () {
+    public Magicans(String heroType, String name, int attack, int def, int minDamage, int maxDamage, int hp, int speed, int mp) {
+        super(heroType, name, attack, def, minDamage, maxDamage, hp, speed);
+        this.mp = mp;
     }
 
 }
