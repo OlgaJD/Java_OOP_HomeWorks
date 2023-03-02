@@ -1,11 +1,11 @@
 package units;
 
 public class Spearman extends Fighters{
-    public Spearman(String name) {
-        super("Копейщик", name, 4, 5, 1, 3, 4, 4);
+    public Spearman(String name, int posX, int posY) {
+        super("Копейщик", name, 4, 5, 1, 3, 10, 10,  4, posX, posY);
     }
-    public Spearman() {
-        super("Копейщик", giveName(), 4, 5, 1, 3, 4, 4);
+    public Spearman(int posX, int posY) {
+        super("Копейщик", giveName(), 4, 5, 1, 3, 10, 10, 4, posX, posY);
     }
 
     @Override

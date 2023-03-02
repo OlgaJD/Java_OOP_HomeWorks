@@ -8,8 +8,8 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
-        ArrayList<BaseHeroes> blackTeam = getTeam(10, "black");
-        ArrayList<BaseHeroes> whiteTeam = getTeam(10, "white");
+        ArrayList<BaseHeroes> blackTeam = getTeam(10, "black", 10);
+        ArrayList<BaseHeroes> whiteTeam = getTeam(10, "white", 1);
         ArrayList<BaseHeroes> allHeroes = new ArrayList<>();
         allHeroes.addAll(blackTeam);
         allHeroes.addAll(whiteTeam);
@@ -18,8 +18,12 @@ public class Main {
         System.out.println("Heroes sorted by speed");
         sort(allHeroes);
         allHeroes.forEach(n -> System.out.println(n.getSpeedSortedInfo()));
-    }
 
+        for (BaseHeroes hero: allHeroes) {
+            if (whiteTeam.contains(hero)) hero.step(whiteTeam,blackTeam);
+            else hero.step(blackTeam, whiteTeam);
+        }
+    }
 
     static void sort(ArrayList<BaseHeroes> team) {
         team.sort(new Comparator<BaseHeroes>() {
@@ -30,7 +34,7 @@ public class Main {
         });
     }
 
-    public static ArrayList<BaseHeroes> getTeam(int groupSize, String teamName) {
+    public static ArrayList<BaseHeroes> getTeam(int groupSize, String teamName, int posY) {
         ArrayList<BaseHeroes> team = new ArrayList<>();
         int start = 0;
         int end = 0;
@@ -46,25 +50,25 @@ public class Main {
         while (count < groupSize) {
             switch (new Random().nextInt(start,end)) {
                 case 0:
-                    team.add(new Spearman());
+                    team.add(new Spearman(count+1, posY));
                     break;
                 case 1:
-                    team.add(new Arbalester());
+                    team.add(new Arbalester(count+1, posY));
                     break;
                 case 2:
-                    team.add(new Monk());
+                    team.add(new Monk(count+1, posY));
                     break;
                 case 3:
-                    team.add(new Peasant());
+                    team.add(new Peasant(count+1, posY));
                     break;
                 case 4:
-                    team.add(new Bandit());
+                    team.add(new Bandit(count+1, posY));
                     break;
                 case 5:
-                    team.add(new Sniper());
+                    team.add(new Sniper(count+1, posY));
                     break;
                 case 6:
-                    team.add(new Sorcerer());
+                    team.add(new Sorcerer(count+1, posY));
                     break;
             }
             count++;
