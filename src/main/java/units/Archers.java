@@ -13,9 +13,10 @@ public abstract class Archers extends BaseHeroes{
     @Override
     public void step(ArrayList<BaseHeroes> team1, ArrayList<BaseHeroes> team2) {
         if (state.equals("Die") || shoots == 0) return;
-        BaseHeroes enemy = team2.get(findNearest(team2));
-        float damage = (enemy.def - attack)>0 ? minDamage : (enemy.def - attack)<0 ? maxDamage : (minDamage+maxDamage)/2;
-        enemy.getDamage(damage);
+        BaseHeroes enemyTarget = team2.get(findNearest(team2));
+        float damage = (enemyTarget.def - attack)>0 ? minDamage : (enemyTarget.def - attack)<0 ? maxDamage : (minDamage+maxDamage)/2;
+        enemyTarget.getDamage(damage);
+        System.out.println(heroType + " " + name + " нанес персонажу " + enemyTarget.name + " " + damage + " очков урона");
         for (BaseHeroes hero: team1) {
             if (hero.heroType.equals("Крестьянин") && hero.state.equals("Stand")) {
                 hero.state = "Busy";
@@ -25,5 +26,11 @@ public abstract class Archers extends BaseHeroes{
         shoots--;
 
     }
+
+    @Override
+    public String statusInfo() {
+        return super.statusInfo() + " Стрелы: " + shoots;
+    }
+
 
 }

@@ -2,6 +2,7 @@ package units;
 import java.util.ArrayList;
 import java.util.Random;
 
+
 public abstract class BaseHeroes implements GameInterface{
     protected int attack;
     protected int def;
@@ -41,7 +42,7 @@ public abstract class BaseHeroes implements GameInterface{
         double min = Double.MAX_VALUE;
         int index = 0;
         for (int i = 0; i < allHeroes.size(); i++) {
-            if (min > coordinates.getDistance(allHeroes.get(i).coordinates)) {
+            if (min > coordinates.getDistance(allHeroes.get(i).coordinates ) && !allHeroes.get(i).state.equals("Die") ) {
                 index = i;
                 min = coordinates.getDistance(allHeroes.get(i).coordinates);
             }
@@ -72,6 +73,13 @@ public abstract class BaseHeroes implements GameInterface{
         return String.format("%s %s, скорость: %d, здоровье: %d", this.heroType, this.name, this.speed, this.hp);
     }
 
+    public String statusInfo(){
+        return  heroType + " " +
+                name + " " +
+                state +
+                " Здоровье: " + Math.round(hp);
+    }
+
     public int getSpeed() {
         return speed;
     }
@@ -79,5 +87,15 @@ public abstract class BaseHeroes implements GameInterface{
     public int getHp() {
         return hp;
     }
+
+    public int getMaxHp() {
+        return maxHp;
+    }
+
+
+//    public boolean isTargetDie(BaseHeroes target){
+//        if (target.state.equals("Die")) return true;
+//        else return false;
+//    }
 
 }
