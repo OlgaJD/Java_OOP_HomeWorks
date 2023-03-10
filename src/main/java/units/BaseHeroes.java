@@ -30,8 +30,9 @@ public abstract class BaseHeroes implements GameInterface{
         state = "Stand";
     }
 
-    public String getInfo() {
-        return String.format("Класс: %s, имя: %s", this.heroType, this.name);
+    @Override
+    public StringBuilder getInfo() {
+        return new StringBuilder("");
     }
 
     @Override
@@ -80,6 +81,16 @@ public abstract class BaseHeroes implements GameInterface{
                 " Здоровье: " + Math.round(hp);
     }
 
+    @Override
+    public String toString() {
+        return name +
+                " H:" + Math.round(hp) +
+                " D:" + def +
+                " A:" + attack +
+                " Dmg:" + Math.round(Math.abs((minDamage+maxDamage)/2)) +
+                " " + state;
+    }
+
     public int getSpeed() {
         return speed;
     }
@@ -88,9 +99,7 @@ public abstract class BaseHeroes implements GameInterface{
         return hp;
     }
 
-    public int getMaxHp() {
-        return maxHp;
-    }
+    public int[] getCoords() {return new int[]{coordinates.posX, coordinates.posY};}
 
 
 //    public boolean isTargetDie(BaseHeroes target){
