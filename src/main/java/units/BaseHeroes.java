@@ -66,13 +66,6 @@ public abstract class BaseHeroes implements GameInterface{
         return String.valueOf(Names.values()[new Random().nextInt(Names.values().length)]);
     }
 
-    public String getFullInfo() {
-        return String.format("Класс: %s, имя: %s, здоровье: %d, минимальный урон: %d, максимальный урон: %d, защита: %d, скорость: %d", this.heroType, this.name, this.hp, this.minDamage, this.maxDamage, this.def, this.speed);
-    }
-
-    public String getSpeedSortedInfo() { // метод для проверки сортировки
-        return String.format("%s %s, скорость: %d, здоровье: %d", this.heroType, this.name, this.speed, this.hp);
-    }
 
     public String statusInfo(){
         return  heroType + " " +
@@ -84,10 +77,10 @@ public abstract class BaseHeroes implements GameInterface{
     @Override
     public String toString() {
         return name +
-                " H:" + Math.round(hp) +
-                " D:" + def +
-                " A:" + attack +
-                " Dmg:" + Math.round(Math.abs((minDamage+maxDamage)/2)) +
+                " Здоровье:" + Math.round(hp) +
+                " Защита:" + def +
+                " Атака:" + attack +
+                " Урон:" + Math.round(Math.abs((minDamage+maxDamage)/2)) +
                 " " + state;
     }
 
@@ -100,11 +93,5 @@ public abstract class BaseHeroes implements GameInterface{
     }
 
     public int[] getCoords() {return new int[]{coordinates.posX, coordinates.posY};}
-
-
-//    public boolean isTargetDie(BaseHeroes target){
-//        if (target.state.equals("Die")) return true;
-//        else return false;
-//    }
 
 }

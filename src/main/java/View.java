@@ -33,8 +33,8 @@ public class View {
                     out = "|" + (AnsiColors.ANSI_RED + hero.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
                     break;
                 }
-                if (Main.blackTeam.contains(hero)) out = "|" + (AnsiColors.ANSI_GREEN + hero.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
-                if (Main.whiteTeam.contains(hero)) out = "|" + (AnsiColors.ANSI_BLUE + hero.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
+                if (Main.whiteTeam.contains(hero)) out = "|" + (AnsiColors.ANSI_YELLOW + hero.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
+                if (Main.blackTeam.contains(hero)) out = "|" + (AnsiColors.ANSI_PURPLE + hero.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
                 break;
             }
         }
@@ -45,17 +45,17 @@ public class View {
         if (step == 1 ){
             System.out.print(AnsiColors.ANSI_RED + "First step" + AnsiColors.ANSI_RESET);
         } else {
-            System.out.print(AnsiColors.ANSI_RED + "Step:" + step + AnsiColors.ANSI_RESET);
+            System.out.print(AnsiColors.ANSI_WHITE_BACKGROUND + AnsiColors.ANSI_BLACK + "Step:" + step + AnsiColors.ANSI_RESET);
         }
         step++;
         Main.allHeroes.forEach((v) -> l[0] = Math.max(l[0], v.toString().length()));
         System.out.print("_".repeat(l[0]*2));
         System.out.println("");
         System.out.print(top10 + "    ");
-        System.out.print("Blue side");
+        System.out.print(AnsiColors.ANSI_YELLOW + "Команда света" + AnsiColors.ANSI_RESET);
         //for (int i = 0; i < l[0]-9; i++)
-        System.out.print(" ".repeat(l[0]-9));
-        System.out.println(":\tGreen side");
+        System.out.print(" ".repeat(l[0]-13));
+        System.out.println(":\t" + AnsiColors.ANSI_PURPLE + "Команда тьмы" + AnsiColors.ANSI_RESET);
         for (int i = 1; i < 11; i++) {
             System.out.print(getChar(1, i));
         }
