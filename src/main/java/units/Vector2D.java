@@ -14,4 +14,8 @@ public class Vector2D {
     protected double getDistance (Vector2D enemy) {
         return Math.sqrt(Math.pow(posX - enemy.posX, 2) + Math.pow(posY - enemy.posY,2));
     }
+
+    protected Vector2D chooseWay(Vector2D enemy) {
+        return new Vector2D(posX - enemy.posX, posY - enemy.posY);
+    }
 }

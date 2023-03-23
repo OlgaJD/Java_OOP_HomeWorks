@@ -10,14 +10,16 @@ public abstract class Magicans extends BaseHeroes {
         this.mp = mp;
     }
 
-    public void step(ArrayList<BaseHeroes> team1, ArrayList<BaseHeroes> team2) {
+    public boolean step(ArrayList<BaseHeroes> team1, ArrayList<BaseHeroes> team2) {
+        if (state.equals("Die")) return false;
         for (BaseHeroes healTarget: team1) {
             if (healTarget.hp < healTarget.maxHp & !healTarget.state.equals("Die")) {
                 healTarget.getDamage(maxDamage);
 //                System.out.println(heroType + " " + name + " вылечил " + healTarget.name + " " + maxDamage + " очков здоровья");
-                return;
+                return true;
             }
         }
+        return true;
     }
 
     @Override

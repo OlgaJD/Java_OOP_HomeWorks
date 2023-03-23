@@ -3,9 +3,8 @@ package units;
 public class Sniper extends Archers{
 
     public Sniper(String name, Vector2D coordinates) {
-        super("Снайпер", giveName(), 12, 10, 8, 10, 150, 150, 9, 32, coordinates.posX, coordinates.posY);
+        super("Снайпер", giveName(), 12, 10, 8, 10, 100, 100, 9, 32, coordinates.posX, coordinates.posY);
     }
-
 
     @Override
     public StringBuilder getInfo() {

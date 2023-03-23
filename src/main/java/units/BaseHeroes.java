@@ -36,8 +36,7 @@ public abstract class BaseHeroes implements GameInterface{
     }
 
     @Override
-    public void step(ArrayList<BaseHeroes> team1, ArrayList<BaseHeroes> team2) {
-    }
+    public boolean step(ArrayList<BaseHeroes> team1, ArrayList<BaseHeroes> team2) {return true;}
 
     protected int findNearest(ArrayList<BaseHeroes> allHeroes) {
         double min = Double.MAX_VALUE;

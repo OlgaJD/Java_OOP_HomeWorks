@@ -3,7 +3,7 @@ package units;
 public class Arbalester extends Archers{
 
     public Arbalester(String name, Vector2D coordinates) {
-        super("Арбалетчик", giveName(), 6, 3, 2, 3, 100, 100, 4, 16, coordinates.posX, coordinates.posY);
+        super("Арбалетчик", giveName(), 12, 10, 8, 10, 100, 100, 9, 32, coordinates.posX, coordinates.posY);
     }
 
     @Override

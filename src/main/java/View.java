@@ -65,7 +65,7 @@ public class View {
         System.out.println(Main.blackTeam.get(0));
         System.out.println(midl10);
 
-        for (int i = 2; i < 9; i++) {
+        for (int i = 2; i < 10; i++) {
             for (int j = 1; j < 11; j++) {
                 System.out.print(getChar(i, j));
             }
@@ -83,5 +83,19 @@ public class View {
         tabSetter(Main.whiteTeam.get(9).toString().length(), l[0]);
         System.out.println(Main.blackTeam.get(9));
         System.out.println(bottom10);
+    }
+    public static void results () {
+        System.out.print(AnsiColors.ANSI_WHITE_BACKGROUND + AnsiColors.ANSI_BLACK + "******* Итоги битвы *******" + AnsiColors.ANSI_RESET + "\n");
+    }
+
+    public static void gameOver () {
+        System.out.print(AnsiColors.ANSI_WHITE_BACKGROUND + AnsiColors.ANSI_BLACK + "Игра окончена"+ AnsiColors.ANSI_RESET + "\n");
+    }
+
+    public static void whiteWin () {
+        System.out.println(AnsiColors.ANSI_YELLOW + "Победила команда света" + AnsiColors.ANSI_RESET);
+    }
+    public static void blackWin () {
+        System.out.println(AnsiColors.ANSI_PURPLE + "Победила команда тьмы" + AnsiColors.ANSI_RESET);
     }
 }

@@ -3,7 +3,7 @@ package units;
 public class Spearman extends Fighters{
 
     public Spearman(String name, Vector2D coordinates) {
-        super("Копейщик", giveName(), 4, 5, 1, 3, 100, 100, 4, coordinates.posX, coordinates.posY);
+        super("Копейщик", giveName(), 8, 3, 2, 4, 100, 100, 6, coordinates.posX, coordinates.posY);
     }
 
     @Override
@@ -14,5 +14,4 @@ public class Spearman extends Fighters{
                 .append("\t| HP:\t").append(Spearman.super.hp)
                 .append("\t|").append("\t| (X.Y) : ").append(Spearman.super.coordinates.posX).append(".").append(Spearman.super.coordinates.posY);
     }
-
 }
